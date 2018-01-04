@@ -27,7 +27,8 @@
         <h1>Réserver un train</h1>
         <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
       </div>
-        
+    <div class="row">
+        <div class="col col-md-12">
         <?php
 
             $trains = file_get_contents('http://localhost:8080/RESTExo2/webresources/trains');
@@ -48,7 +49,11 @@
          
 
           ?>
-
+        </div>
+    </div>
+    <div style="margin-bottom: 50px;"></div>
+    <div class="row">
+        <div class="col col-md-12">
       <form method="POST" action="">
         <label for="">Num Train</label>
         <input type="text" name="numTrain" value=""/>
@@ -56,7 +61,8 @@
         <input type="text" name="nombrePlace" value=""/>
           <input type="submit" name="submit" value="ajouter">
       </form>
-
+        </div>
+    </div>
     </main><!-- /.container -->
 
 
