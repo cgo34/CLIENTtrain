@@ -21,9 +21,6 @@
       <a class="nav-link" href="http://localhost/~Geoffroy/CTrain/trains">Trains</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="http://localhost/~Geoffroy/CTrain/addtrain">Ajouter Trains</a>
-    </li>
-    <li class="nav-item">
       <a class="nav-link" href="http://localhost/~Geoffroy/CTrain/booktrain">Reserver Trains</a>
     </li>
 
