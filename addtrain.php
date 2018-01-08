@@ -66,6 +66,8 @@ echo $response;*/
             echo $_POST['villeDepart'];
             echo $_POST['villeArrivee'];
             
+            var_dump($_POST['heureDepart']);
+            
             /*$url = "http://localhost:8080/RESTExo2/webresources/trains/add";
             $xml_str = "<train><heureDepart>".$_POST['heureDepart']."</heureDepart><numTrain>".$_POST['numTrain']."</numTrain><villeArrivee>".$_POST['villeArrivee']."</villeArrivee><villeDepart>".$_POST['villeDepart']."</villeDepart></train>";
             $post_data = array('xml' => $xml_str);
@@ -81,7 +83,7 @@ echo $response;*/
             
             $url = "http://localhost:8080/RESTExo2/webresources/trains/";
 
-            $post_string = '<?xml version="1.0" encoding="UTF-8"?>
+            $xml = '<?xml version="1.0" encoding="UTF-8"?>
                             <train>
                                 <heureDepart>'.$_POST['heureDepart'].'</heureDepart>
                                 <numTrain>'.$_POST['numTrain'].'</numTrain>
@@ -90,10 +92,10 @@ echo $response;*/
                             </train>';
 
 
-            $header  = "POST HTTP/1.0 \r\n";
+          /*  $header  = "POST HTTP/1.0 \r\n";
             $header .= "Content-type: application/xml \r\n";
             $header .= "Content-length: ".strlen($post_string)." \r\n";
-            $header .= "Content-transfer-encoding: text \r\n";
+            //$header .= "Content-transfer-encoding: text \r\n";
             $header .= "Connection: close \r\n\r\n"; 
             $header .= $post_string;
             print('<pre>');
@@ -114,10 +116,21 @@ echo $response;*/
             print('<pre>');
             print_r($data);
             print('</pre>');
+            
             if(curl_errno($ch))
                 print curl_error($ch);
             else
                 curl_close($ch);
+           * 
+           * */
+            
+           $request = new HTTPRequest($url, HTTP_METH_POST);
+            $request->setRawPostData($xml);
+            # Send our request
+            $request->send();
+            # Get the response
+            $response = $request->getResponseBody();
+            print_r($response);
         }
     }
     

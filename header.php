@@ -22,10 +22,10 @@
     </li>
 
   </ul>
-  <form method="POST" action="search.php" class="form-inline my-2 my-lg-0 col col-sm-7">
-      <input class="form-control col col-sm-2 mr-sm-2" type="text" placeholder="Départ" aria-label="Départ">
-      <input class="form-control col col-sm-2 mr-sm-2" type="text" placeholder="Arrivée" aria-label="Arrivée">
-      <input class="form-control col col-sm-3 mr-sm-2" type="text" placeholder="Heure d'arrivée" aria-label="Heure d'arrivée">
+  <form method="GET" action="search.php" class="form-inline my-2 my-lg-0 col col-sm-7">
+      <input class="form-control col col-sm-2 mr-sm-2" type="text" placeholder="Départ" aria-label="Départ" name="departure">
+      <input class="form-control col col-sm-2 mr-sm-2" type="text" placeholder="Arrivée" aria-label="Arrivée" name="arrival">
+      <input class="form-control col col-sm-2 mr-sm-2" type="time" placeholder="Heure de départ" aria-label="Heure de départ" name="arrivalHour">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher un train</button>
   </form>
 </div>
