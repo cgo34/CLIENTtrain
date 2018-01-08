@@ -1,4 +1,4 @@
-<h1>Liste des trains</h1>
+<h2>Liste des trains</h2>
 <p class="lead">Découvrez toutes les horaires et les destinations.</p>
 <?php
 

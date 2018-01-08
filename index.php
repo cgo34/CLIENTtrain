@@ -30,8 +30,14 @@
             <div class="col col-md-6">
                 <?php include 'liste-trains.php'; ?>
             </div>
+            <?php
+            
+            $Listoftrains = file_get_contents('http://localhost:8080/RESTExo2/webresources/trains');
+            $object = simplexml_load_string($Listoftrains);     
+
+            ?>
             <div class="col col-md-6">
-                <h1>Ajouter un train</h1>
+                <h2>Ajouter un train</h2>
                 <p class="lead">Utilisez le formulaire ci-dessus pour ajouter un train.</p>
                 <form method="POST" action="addTrain.php">
                     <p><label for="numTrain">Num Train</label>
@@ -42,7 +48,22 @@
                     <input type="text" name="villeDepart" value=""/>
                     <label for="villeArrivee">Ville arrivée</label>
                     <input type="text" name="villeArrivee" value=""/></p>
-                    <input type="submit" name="submit" value="ajouter">
+                    <input type="submit" name="add" value="ajouter">
+                </form>
+                <h2>Supprimer un train</h2>
+                <form method="POST" action="deletetrain.php">
+                    <label for="numTrain">Sélectionnez un train</label>
+                    <select name="numTrain">
+                      <option value="0">Sélectionnez un train</option>
+                      <?php
+
+                      foreach ($object->train as $key => $train) {
+                        echo '<option value="'.$train->numTrain.'">'.$train->numTrain.'</option>';
+                      }
+
+                      ?>
+                    </select>
+                    <input type="submit" name="delete" value="Supprimer"/>
                 </form>
             </div>
             <?php
